@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import styled from "styled-components";
 import Login from "./pages/Login/index.js"
 import PasswordReset from "./pages/PasswordReset/index.js";
 import Register from "./pages/Register";
@@ -18,4 +17,3 @@ function App() {
 }
 
 export default App;
-

@@ -1,21 +1,20 @@
 import styled from "styled-components";
 
 const Form = styled.form`
-   width: 40%;
-   height: 700px;
+   padding: 30px;
    box-sizing: border-box;
-   padding: 50px 70px;
-   display: flex;
-   background-color: gainsboro;
+   border-radius: 6px;
+   
    display: flex;
    flex-direction: column;
+   -webkit-box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.39);
+   -moz-box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.39);
+   box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.39);
 
    h1{
+      margin-bottom: 30px;
       font-size: 23px;
-      margin-bottom: 60px;
-      font-weight: bold;
    }
-
    .submit-div{
       margin-top: 35px;
       
@@ -26,7 +25,12 @@ const Form = styled.form`
 
    .link-new-account-div{
       margin-top: 30px;
-}
+   }
+
+   .signup-btn:disabled{
+      cursor: auto;
+      opacity: 0.5;
+   }
 `
 
 export default Form;
