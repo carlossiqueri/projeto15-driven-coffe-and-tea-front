@@ -1,6 +1,5 @@
 import Header from "../../components/CatalogComponents/Header/Header";
 import Products from "../../components/CatalogComponents/Products/Products";
-import useQuickOut from "../../hooks/useQuickOut";
 import Banner from "../../components/CatalogComponents/Banner/Banner";
 
 export default function Catalog() {

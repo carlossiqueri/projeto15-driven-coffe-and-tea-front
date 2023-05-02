@@ -10,7 +10,11 @@ import {
 import pilao from "../../../images/pilao.jpg";
 import { GrStar } from "react-icons/gr";
 import { IconContext } from "react-icons";
+
 export default function Products() {
+  function addProduct (){
+    console.log("cliiiiiqueiiiiiiii")
+  }
   return (
     <ProductsBox>
       <StyledContainer>
@@ -25,7 +29,7 @@ export default function Products() {
             <ProductDescription>
               Um café pilão, muito forte e muito BÃO
             </ProductDescription>
-            <CartButton>+</CartButton>
+            <CartButton onClick={addProduct}>+</CartButton>
           </ul>
         </IconContext.Provider>
       </StyledContainer>
