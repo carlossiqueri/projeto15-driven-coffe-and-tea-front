@@ -25,7 +25,7 @@ export default function Navbar() {
             <BiMenu onClick={handleClick} />
           )}
           <StyledLink to="/">Driven Coffe & Tea</StyledLink>
-          <StyledLink to="/login">
+          <StyledLink to="/logout">
             <BiUser />
           </StyledLink>
         </IconContext.Provider>
