@@ -14,17 +14,13 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import AddCartButton from "./AddCartButton";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Products() {
   const [stock, setStock] = useState([]);
   const [cart, setCart] = useState([]);
-  const [selected, setSelected] = useState(false);
-
-  function addProduct() {
-    console.log("cliiiiiqueiiiiiiii");
-  
-  }
-
+  const navigate = useNavigate();
   function getStock() {
     axios
       .get(`${process.env.REACT_APP_API_URL}/stock`)
@@ -37,6 +33,7 @@ export default function Products() {
   useEffect(() => {
     getStock();
   }, []);
+
   return (
     <ProductsBox>
       {stock.map((p, index) => {
@@ -52,20 +49,17 @@ export default function Products() {
                   {p.name}
                 </ProductTitle>
 
-                <ProductPrice>{p.price}</ProductPrice>
+                <ProductPrice>R$ {p.price.toFixed(2)}</ProductPrice>
                 <ProductDescription>{p.description}</ProductDescription>
                 <IconContext.Provider value={{ color: "#fff" }}>
-                  <CartButton 
-                  onClick={() =>{
-                    if(cart.includes(p)){
-                      setCart(cart.filter((c) => c !== p))
-                      console.log(cart)
-                    }else{
-                      setCart([...cart, p])
-                      console.log(cart)
-                    }
-
-                  }}
+                  <CartButton
+                    onClick={() => {
+                      if (cart.includes(p)) {
+                        setCart(cart.filter((c) => c !== p));
+                      } else {
+                        setCart([...cart, p]);
+                      }
+                    }}
                   >
                     {cart.includes(p) ? <AiOutlineCheck /> : "+"}
                   </CartButton>
@@ -75,7 +69,18 @@ export default function Products() {
           </StyledContainer>
         );
       })}
-    {cart.length !== 0 ? <AddCartButton cart={cart}/> : ""}
+      {cart.length !== 0 ? (
+        <AddCartButton
+          onClick={() => {
+            axios
+              .post(`${process.env.REACT_APP_API_URL}/cart`, cart)
+              .then((res) => navigate("/cart"))
+              .catch((err) => console.log(err.response.data));
+          }}
+        />
+      ) : (
+        ""
+      )}
     </ProductsBox>
   );
 }

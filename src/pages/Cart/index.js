@@ -143,13 +143,15 @@ export default function Cart() {
 
     setSubTotal(copySubTotal);
   }, []);
-// KickOut
-  useKickOut();
+  // KickOut
+  // useKickOut();
   // component
   return (
     <Container id="#main">
       <IconContext.Provider value={{ color: "#fff", size: "1.2em" }}>
-        <StyledHeader>CARRINHO <AiOutlineShoppingCart /></StyledHeader>
+        <StyledHeader>
+          CARRINHO <AiOutlineShoppingCart />
+        </StyledHeader>
       </IconContext.Provider>
       <StyledModal isOpen={modalIsOpen}>
         <div>

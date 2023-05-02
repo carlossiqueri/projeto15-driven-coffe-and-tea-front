@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const ProductsBox = styled.div`
-  overflow-x: calc(100vh - 600px);
+  height: 100%;
+  overflow-x: scroll;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,14 +72,14 @@ export const StyledCartButton = styled.button`
   align-items: center;
   height: 80px;
   width: 90vw;
-  border-radius: 5px;
+  border-radius: 24px;
   border: 2px solid #fff;
   background-color: #ff4e4e;
   position: fixed;
   bottom: 10px;
   z-index: 1;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 700;
   font-style: oblique;
   color: #000000;
 `;
